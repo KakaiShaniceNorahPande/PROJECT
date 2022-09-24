@@ -14,28 +14,45 @@ class StuAtt extends StatelessWidget {
       title: 'STuAtt',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('SCAN QR CODE')
+          title: const Text('ATTENDANCE QR CODE GENERATOR')
         ),
-       body:(
-          QrImage(
-            data: 'CSC2022 CSC1202 1'
-                'CSC2022 CSC1202 1',
-            version: QrVersions.auto,
-            size: (320),
-            gapless: false,
-            errorStateBuilder: (cxt, err) {
-              return Container(
-                child: const Center(
-                  child: Text(
-                    'Something Went Wrong',
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              );
-            },
-          )
-        ),
+        body: Center(
+          child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: QrImage(
+                        data: 'CSC2022 CSC1202 1',
+                        version: QrVersions.auto,
+                        size: (200),
+                        gapless: false,
+                        errorStateBuilder: (cxt, err) {
+                          return Container(
+                            child: const Center(
+                              child: Text(
+                                'Something Went Wrong',
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          );
+                        }
+                        ),
+                  )
+                ]
+                )
+            ),
+            ElevatedButton(onPressed: (){},
+              child: const Text("Generate QR Code",
+                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20),),
+            ),
+         ]
+       ),
       ),
+      )
     );
   }
 }

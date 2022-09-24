@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'firstpage.dart' ;
 import 'generate.dart' ;
 
 void main() {
